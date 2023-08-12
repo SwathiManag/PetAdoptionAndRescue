@@ -1,0 +1,143 @@
+<script lang="ts">
+import PetDataService from "@/services/PetDataService";
+import Pet from "@/types/Pet";
+import {defineComponent} from "vue";
+import ResponseData from "@/types/ResponseData";
+import dayjs from 'dayjs';
+
+export default defineComponent({
+  name: "missing-found-listing",
+  data() {
+    return {
+      missingPetList: [] as Pet[],
+      foundPetList: [] as Pet[],
+      url: "" as string,
+    };
+  },
+  mounted() {
+    this.retrievePetList();
+  },
+  methods: {
+    retrievePetList() {
+      PetDataService.getbyFlagType('Missing')
+          .then((response: ResponseData) => {
+            this.missingPetList = response.data;
+            console.log(response.data);
+          })
+          .catch((e: Error) => {
+            console.log(e);
+          });
+      PetDataService.getbyFlagType('Found')
+          .then((response: ResponseData) => {
+            this.foundPetList = response.data;
+            console.log(response.data);
+          })
+          .catch((e: Error) => {
+            console.log(e);
+          });
+    },
+    retrievePet(id: any) {
+      PetDataService.get(id)
+          .then((response: ResponseData) => {
+            this.url = response.data;
+            console.log(response.data);
+          })
+          .catch((e: Error) => {
+            console.log(e);
+          });
+      const inputs = document.getElementById("missing_found_form")!.getElementsByTagName('input');
+      for (let i = 0, len = inputs.length; i < len; ++i) {
+        inputs[i].readOnly = true;
+      }
+    },
+    formatDate(dateString:any) {
+      const date = dayjs(dateString);
+      // Then specify how you want your dates to be formatted
+      return date.format('MMMM D, YYYY');
+    }
+  },
+})
+</script>
+<style scoped>
+h4 {
+  color: black;
+  margin: 1em;
+}
+
+.row {
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  font-size: medium;
+}
+td{
+  background-color: #fffdf3;
+  color: black;
+}
+
+.reqId{
+  background-color: #fffdf3;
+  color: black;
+}
+
+</style>
+<template>
+  <section style="background-color: #f7f7f7">
+    <h4>Missing/Found Requests</h4>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="tableContainer col-xs-12 table-responsive">
+          <table class="table table-hover">
+            <thead class="table-dark">
+            <tr>
+              <th scope="col">Request ID</th>
+              <th scope="col">Request Type</th>
+              <th scope="col">Pet Type</th>
+              <th scope="col">Created By</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Request Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template v-for="pet in missingPetList" :key="pet.id">
+              <tr>
+                <th class="reqId" scope="row">
+                  <router-link
+                      :to="'../details/' + pet[0]+'/'+pet[10]"
+                  >
+                    {{pet[0]}}
+                  </router-link>
+                </th>
+                <td>Missing</td>
+                <td>{{pet[2]}}</td>
+                <td>{{pet[7]}}</td>
+                <td>{{formatDate(pet[8])}}</td>
+                <td>{{pet[6]}}</td>
+                <td>{{pet[9]}}</td>
+              </tr>
+            </template>
+            <template v-for="pet in foundPetList" :key="pet.id">
+              <tr>
+                <th class="reqId" scope="row">
+                  <router-link
+                      :to="'../details/' + pet[0]+'/'+pet[10]"
+                  >
+                    {{pet[0]}}
+                  </router-link>
+                </th>
+                <td>Found</td>
+                <td>{{pet[2]}}</td>
+                <td>{{pet[7]}}</td>
+                <td>{{formatDate(pet[8])}}</td>
+                <td>{{pet[6]}}</td>
+                <td>{{pet[9]}}</td>
+              </tr>
+            </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>List Pets</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+	<div>
+		<form th:action="@{/logout}" method="post">
+			<p>
+				Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			</p>
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<div>
+		<h1>List of Pets</h1>
+	</div>
+	
+	<div>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Breed</th>
+					<th>Age</th>
+					<th>Color</th>
+					<th>Location</th>
+					<th>Description</th>
+					<th>adoption</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pet: ${listPets}">
+						<td th:text="${pet.id}">Pet ID</td>
+						<td th:text="${pet.name}">Name</td>
+						<td th:text="${pet.type}">Type</td>
+						<td th:text="${pet.breed}">Breed</td>
+						<td th:text="${pet.age}">Age</td>
+						<td th:text="${pet.color}">Color</td>
+						<td th:text="${pet.location}">Location</td>
+						<td th:text="${pet.description}">description</td>
+						<td>
+							<form th:action="@{/adoption}" th:object="${pet}" method="post">
+								<input type="submit" value="adoption" />
+							</form>
+						</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

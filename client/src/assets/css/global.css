@@ -1,0 +1,46 @@
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Satisfy&display=swap');
+
+/* CUSTOM PROPERTIES */
+
+/*
+  The :root selector matches the document's root element.
+  In HTML, the root element is always html. By convention,
+  custom properties are always defined in :root (not in html).
+*/
+:root {
+    --title-font-family: "Satisfy", cursive;
+    --default-font-family: "Arbutus Slab", serif;
+    /*
+      16px is the default font size set by browswers in the html tag.
+      This should never be changed so that vision-impared users can override it.
+      Therefore, 1rem (root em) is the width of an em-dash at 16px.
+      If you want a differnt default size for your site, change it in the body tag.
+      For example, if you want 20px, then set the size to 20/16 = 1.25rem.
+    */
+    --default-font-size: 1.25rem;
+    --default-text-color: #ffffff;
+
+    --primary-color: #ffffff;
+    --primary-color-dark: #000000;
+    --primary-background-color: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* LAYOUT */
+
+/* These global font properties with be inherited by child elements. */
+body {
+    background: var(--primary-background-color);
+    color: var(--default-text-color);
+    font-family: var(--default-font-family);
+    font-size: var(--default-font-size);
+    margin: 0 auto;
+    max-width: 100%;
+}

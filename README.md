@@ -2,7 +2,8 @@
 
 PetAdoptionAndRescue is a comprehensive site for animal care, pet adoption, and lost & found services that brings the animal-loving community together.
 
-Description
+## Description
+
 Our application will have these features and more, giving the users an incredibly hassle-free experience:
 1. Users will have the ability to post their pet for adoption. Users looking for a pet will also be able to search for pets on our website.
 2. We will offer animal rescue functionality, where we will partner with NGOs to pick up reported stray or injured animals and to help reunite pets with their humans. Users will be able to post on our platform when they see an animal is injured or in need of support as part of our “Animal Rescue” hotline feature.
@@ -14,7 +15,7 @@ Our application will have these features and more, giving the users an incredibl
 8. Pet trainer information
 9. Locating pet trainers
 
-Project Functionalities
+## Project Functionalities
 
 1) Create User Account :
 Register yourself as a new User or login if an existing user. Fill in all the required fileds and click on Register.

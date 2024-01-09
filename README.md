@@ -1,4 +1,5 @@
-PetAdoptionAndRescue
+# PetAdoptionAndRescue
+
 PetAdoptionAndRescue is a comprehensive site for animal care, pet adoption, and lost & found services that brings the animal-loving community together.
 
 Description

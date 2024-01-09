@@ -4,15 +4,15 @@ PetAdoptionAndRescue is a comprehensive site for animal care, pet adoption, and 
 
 Description
 Our application will have these features and more, giving the users an incredibly hassle-free experience:
-● Users will have the ability to post their pet for adoption. Users looking for a pet will also be able to search for pets on our website.
-● We will offer animal rescue functionality, where we will partner with NGOs to pick up reported stray or injured animals and to help reunite pets with their humans. Users will be able to post on our platform when they see an animal is injured or in need of support as part of our “Animal Rescue” hotline feature.
-● Users will be able to gather with their pets and other pet owners in pet community events. This will give pets and their human companions a chance to socialize and even share tips and tricks they’ve learned along the way! As part of this feature, we will include calendar event scheduling for official events and community events.
-● Users will be able to post lost and found pets on our platform. We intend to use geolocation to implement this feature.
-● As we believe in building a community for the users of our platform, we will share tips and other useful information for pet owners, including:
-○ Pet care
-○ Tips for new pet owners
-○ Pet trainer information
-○ Locating pet trainers
+1. Users will have the ability to post their pet for adoption. Users looking for a pet will also be able to search for pets on our website.
+2. We will offer animal rescue functionality, where we will partner with NGOs to pick up reported stray or injured animals and to help reunite pets with their humans. Users will be able to post on our platform when they see an animal is injured or in need of support as part of our “Animal Rescue” hotline feature.
+3. Users will be able to gather with their pets and other pet owners in pet community events. This will give pets and their human companions a chance to socialize and even share tips and tricks they’ve learned along the way! As part of this feature, we will include calendar event scheduling for official events and community events.
+4. Users will be able to post lost and found pets on our platform. We intend to use geolocation to implement this feature.
+5. As we believe in building a community for the users of our platform, we will share tips and other useful information for pet owners, including:
+6. Pet care
+7. Tips for new pet owners
+8. Pet trainer information
+9. Locating pet trainers
 
 Project Functionalities
 
